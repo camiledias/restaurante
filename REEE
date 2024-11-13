@@ -1,0 +1,114 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+
+class Prato { 
+    String nome;
+    String descricao;
+    String status;
+    float preco;
+   
+
+    public Prato(String nome, String descricao, String status, float preco){
+        this.nome = nome;
+        this.descricao = descricao;
+        this.status = status;
+        this.preco = preco;
+
+    }
+
+    
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return nome + "\n" + descricao  + "\n" + status + "\n" + preco;
+    }
+
+
+}
+
+class ValorPrato {
+    Float preco;
+
+    public ValorPrato(Float preco){
+        this.preco = preco;
+    }    
+}
+
+class Pedido {
+    int quantP;
+    Double vTp;
+
+    public Pedido(int quantP, Double vTP){
+        this.quantP = quantP;
+        this.vTp = vTP;
+    }
+    
+}
+
+
+public class restaurante {
+ 
+    public static Prato cadastrarPrato(ArrayList<Prato> pratos, String pratoCadastrado  ){
+        for (Prato prato: pratos){
+            if (prato.nome.equals(pratoCadastrado)){
+                return prato;
+            }
+        }
+        return null;
+    }
+    
+
+
+
+public static void main(String[] args){
+    Scanner scan = new Scanner(System.in);
+    ArrayList<Prato> pratos = new ArrayList<>();
+    ArrayList<Pedido> pedidos = new ArrayList<>();
+    
+
+
+      menu:
+       while (true) {
+        System.out.println("1.Cadastrar prato  \n2.Verificar pratos disponiveis \n3.Fazer pedido \n5.Sair");
+        int op = scan.nextInt(); scan.nextLine();
+
+        switch (op) {
+            case 1:
+             System.out.println("Digite o nome do  prato que deseja cadatrar:");
+             String nome = scan.nextLine();
+             System.out.println("Escreva uma descrição sobre o prato: ");
+             String descricao = scan.nextLine();
+             System.out.println("Insira o preço do prato: "); 
+             float preco = scan.nextFloat();
+             Prato prato = new Prato(nome, descricao, "Disponível", preco);
+
+             System.out.println("Prato cadastrado com sucesso!");
+             pratos.add(prato);
+            
+            
+                break;
+
+                case 2:
+               
+       
+
+                break menu;
+    
+            default:
+                break;
+
+
+
+
+
+
+                
+    }
+    
+
+    }
+}
+
+}
