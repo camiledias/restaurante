@@ -1,0 +1,117 @@
+import java.util.Scanner;
+import java.io.ObjectInputFilter.Status;
+import java.util.ArrayList;
+
+
+class Prato { 
+    String nome;
+    String descricao;
+    String status;
+
+   
+
+    public Prato(String nome, String descricao, String status){
+        this.nome = nome;
+        this.descricao = descricao;
+     
+
+    }
+
+
+}
+
+class ValorPrato {
+    Float preco;
+
+    public ValorPrato(Float preco){
+        this.preco = preco;
+    }    
+}
+
+class Pedido {
+    int quantP;
+    Double vTp;
+
+    public Pedido(int quantP, Double vTP){
+        this.quantP = quantP;
+        this.vTp = vTP;
+    }
+    
+}
+
+
+public class restaurante {
+ 
+    public static Prato cadastrarPrato(ArrayList<Prato> pratos, String pratoCadastrado  ){
+        for (Prato prato: pratos){
+            if (prato.nome.equals(pratoCadastrado)){
+                return prato;
+            }
+        }
+        return null;
+    }
+    
+
+
+
+public static void main(String[] args){
+    Scanner scan = new Scanner(System.in);
+    ArrayList<Prato> pratos = new ArrayList<>();
+    ArrayList<Pedido> pedidos = new ArrayList<>();
+    ArrayList<ValorPrato> vpratos = new ArrayList<>();
+
+      menu:
+       while (true) {
+        System.out.println("1.Cadastrar prato  \n3.Verificar pratos disponiveis \n4.Fazer pedido \n 5.Sair");
+        int op = scan.nextInt(); scan.nextLine();
+
+        switch (op) {
+            case 1:
+             System.out.println("Digite o nome do  prato que deseja cadatrar:");
+             String nome = scan.nextLine();
+             System.out.println("Escreva uma descrição sobre o prato: ");
+             String descricao = scan.nextLine();
+             Prato prato = new Prato(nome, descricao, "Disponível");
+             System.out.println("Insira o preço do prato: "); 
+             Float preco = scan.nextFloat();
+             ValorPrato valorPrato = new ValorPrato(preco); 
+             System.out.println("Prato cadastrado com sucesso!");
+             pratos.add(prato);
+             vpratos.add(valorPrato);
+            
+                break;
+
+                case 2:
+                Prato prato1 = new Prato();
+                System.out.print("Digite o prato que deseja verificar:");
+                String statusProcurado = scan.nextLine();
+
+                boolean existe = verificarStatus(status, statusProcurado);
+        if (Disponível) {
+            System.out.println("Prato Disponível");
+        } else {
+            System.out.println("Prato indisponível");
+        }
+       
+
+    
+    
+            default:
+                break;
+    }
+        
+scan.close();
+    
+
+    }
+}
+
+}
+
+
+
+
+
+
+
+
